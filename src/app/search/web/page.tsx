@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type SearchParamsProps = {
   searchParams: {
     searchTerm: string;
@@ -9,6 +11,25 @@ const SearchWeb = async ({ searchParams }: SearchParamsProps) => {
   );
   const data = await res.json();
   const results = data.items;
+
+  if (!results) {
+    return (
+      <div className="flex flex-col items-center justify-center pt-10">
+        <h1 className="text-3xl mb-4">
+          No result found for {searchParams.searchTerm}
+        </h1>
+        <p className="text-lg">
+          Try searching the web or images for something else{" "}
+          <Link
+            className="text-blue-500 hover:font-semibold hover:text-blue-600 hover:animate-pulse hoverEffect"
+            href="/"
+          >
+            Home
+          </Link>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div>{results && results.map((result) => <h1>{result.title}</h1>)}</div>
