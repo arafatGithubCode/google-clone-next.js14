@@ -1,5 +1,9 @@
-import Image from "next/image";
+import HomeHeader from "@/components/header/HomeHeader";
 
 export default function Home() {
-  return <main className="text-red-500">app</main>;
+  return (
+    <>
+      <HomeHeader />
+    </>
+  );
 }
