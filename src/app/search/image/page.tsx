@@ -9,6 +9,8 @@ type SearchParamsProps = {
 };
 
 const ImageSearchPage = async ({ searchParams }: SearchParamsProps) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   const startIndex = searchParams.start || "1";
   const response = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.Go_Search_API_KEY}&cx=${process.env.CX_ENGINE_ID}&q=${searchParams.searchTerm}'}&searchType=image&start=${startIndex}`

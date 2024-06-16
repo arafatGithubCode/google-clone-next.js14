@@ -8,6 +8,7 @@ type SearchParamsProps = {
   };
 };
 const SearchWeb = async ({ searchParams }: SearchParamsProps) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const startIndex = searchParams.start || "1";
 
   const res = await fetch(
