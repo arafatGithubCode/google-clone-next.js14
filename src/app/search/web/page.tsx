@@ -1,3 +1,4 @@
+import WebSearchResults from "@/components/search-result/WebSearchResults";
 import Link from "next/link";
 
 type SearchParamsProps = {
@@ -31,9 +32,7 @@ const SearchWeb = async ({ searchParams }: SearchParamsProps) => {
     );
   }
 
-  return (
-    <div>{results && results.map((result) => <h1>{result.title}</h1>)}</div>
-  );
+  return <>{results && <WebSearchResults results={data} />}</>;
 };
 
 export default SearchWeb;
