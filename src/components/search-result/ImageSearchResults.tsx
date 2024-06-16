@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PaginationButton from "../PaginationButton";
 
 interface ResultItem {
   link: string;
@@ -46,6 +47,9 @@ const ImageSearchResults = ({ results }: ImageSearchResultsProps) => {
               </div>
             </div>
           ))}
+      </div>
+      <div className="ml-16">
+        <PaginationButton />
       </div>
     </div>
   );

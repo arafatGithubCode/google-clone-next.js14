@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Parser from "html-react-parser";
+import PaginationButton from "../PaginationButton";
 
 interface SearchInformation {
   formattedTotalResults: string;
@@ -42,6 +43,7 @@ const WebSearchResults = ({ results }: WebSearchResultsProps) => {
             <p className="text-gray-600">{Parser(result.htmlSnippet)}</p>
           </div>
         ))}
+      <PaginationButton />
     </div>
   );
 };

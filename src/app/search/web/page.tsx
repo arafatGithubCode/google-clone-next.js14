@@ -4,11 +4,14 @@ import Link from "next/link";
 type SearchParamsProps = {
   searchParams: {
     searchTerm: string;
+    start: "1";
   };
 };
 const SearchWeb = async ({ searchParams }: SearchParamsProps) => {
+  const startIndex = searchParams.start || "1";
+
   const res = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.Go_Search_API_KEY}&cx=${process.env.CX_ENGINE_ID}&q=${searchParams.searchTerm}}`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.Go_Search_API_KEY}&cx=${process.env.CX_ENGINE_ID}&q=${searchParams.searchTerm}}&start=${startIndex}`
   );
   const data = await res.json();
   const results = data.items;
